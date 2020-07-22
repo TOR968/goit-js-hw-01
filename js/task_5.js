@@ -38,9 +38,6 @@ if (price === null) {
 } else if (price > 0) {
   message = `Доставка в ${country} будет стоить ${price} кредитов`;
 }
-// else if (price <= 0) {
-//   message = NO_DELIVERY;
-// }
 
 console.log(message);
 
