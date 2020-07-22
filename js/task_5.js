@@ -1,4 +1,4 @@
-let countryName = null;
+let countryName = prompt('Введите страну');
 
 const CANCELED_BY_USER = 'Отменено пользователем!';
 const NO_DELIVERY = 'В выбранную страну доставка недоступна.';
@@ -12,7 +12,7 @@ let country;
 if (countryName === null) {
   message = CANCELED_BY_USER;
 } else {
-  country = countryName[0].toUpperCase() + countryName.slice(1).toLowerCase(); // Write code in this line
+  country = countryName[0].toUpperCase() + countryName.slice(1).toLowerCase();
   switch (country) {
     case CNINA:
       price = 100;
@@ -29,20 +29,18 @@ if (countryName === null) {
     case JAMAICA:
       price = 120;
       break;
-
     default:
-      console.log(NO_DELIVERY);
+      message = NO_DELIVERY;
   }
 }
-if (countryName === CNINA) {
-  message = `Доставка в ${country} будет стоить ${price} кредитов`;
-} else if (countryName === AUSTRALIA) {
-  message = `Доставка в ${country} будет стоить ${price} кредитов`;
-} else if (countryName === INDIA) {
-  message = `Доставка в ${country} будет стоить ${price} кредитов`;
-} else if (countryName === JAMAICA) {
+if (price === null) {
+  message = CANCELED_BY_USER;
+} else if (price > 0) {
   message = `Доставка в ${country} будет стоить ${price} кредитов`;
 }
+// else if (price <= 0) {
+//   message = NO_DELIVERY;
+// }
 
 console.log(message);
 
